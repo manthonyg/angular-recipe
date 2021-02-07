@@ -1,0 +1,17 @@
+<div class="list-group">
+<app-recipe-form (recipeCreatedEvent)="onRecipeAdded($event)"></app-recipe-form> 
+  <app-recipe
+   *ngFor="let recipe of recipes"
+   [recipe]="recipe"
+   >
+
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ recipe?.name }}</h5>
+        <small>{{ recipe?.time }} minutes</small>
+      </div>
+      <p class="mb-1">{{ recipe?.description }}</p>
+      <img class="img-fluid" src="{{ recipe?.imagePath }}">
+      <button (click)="onRecipeDeleted(recipe?.name)">Delete</button>
+
+  </app-recipe>
+</div>

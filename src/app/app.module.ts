@@ -1,14 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.component';
+import { HeaderComponent } from './header/header.component';
+import { RecipeComponent } from './recipe-book/recipe/recipe.component';
+import { RecipeFormComponent } from './recipe-book/recipe-form/recipe-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RecipeListComponent,
+    HeaderComponent,
+    RecipeComponent,
+    RecipeFormComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule
   ],

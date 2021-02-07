@@ -1,0 +1,17 @@
+
+
+<label for="recipe-name">Recipe name</label>
+<input [(ngModel)]="recipeName" class="form-control" name="recipe-name" type="text">
+<label for="recipe-description">Recipe description</label>
+<input [(ngModel)]="recipeDescription" class="form-control" name="recipe-description" type="text">
+<label for="recipe-description">Recipe time</label>
+<input [(ngModel)]="recipeTime" class="form-control" name="recipe-time" type="text">
+<label for="recipe-description">Recipe directions</label>
+<input [(ngModel)]="recipeDirections" class="form-control" name="recipe-directions" type="text">
+<label for="recipe-description">Recipe image path</label>
+<input [(ngModel)]="recipeImagePath" class="form-control" name="recipe-image-path" type="text">
+<button (click)="onAddRecipe()" class="btn btn-primary">Submit recipe</button>
+
+RNAME: {{ recipeName }}
+RDESC: {{ recipeDescription }}
+time: {{recipeTime}}
