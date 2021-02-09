@@ -9,7 +9,7 @@ import { RecipeComponent } from './recipe-book/recipe/recipe.component';
 import { RecipeFormComponent } from './recipe-book/recipe-form/recipe-form.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
-
+import { OptionalRenderDirective } from "./directives/optionalRender/optional-render.directive";
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +18,8 @@ import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail
     RecipeComponent,
     RecipeFormComponent,
     ShoppingListComponent,
-    RecipeDetailComponent
+    RecipeDetailComponent,
+    OptionalRenderDirective,
   ],
   imports: [
     FormsModule,
