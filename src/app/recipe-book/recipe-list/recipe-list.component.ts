@@ -1,3 +1,4 @@
+import { debugOutputAstAsTypeScript } from '@angular/compiler';
 import { Component, Output, OnInit, EventEmitter } from '@angular/core';
 import { Recipe } from "../recipe/recipe.model";
 
@@ -27,6 +28,10 @@ export class RecipeListComponent implements OnInit {
     recipeName: string
   }>();
 
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
+
+  selectedRecipe: Recipe;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -48,6 +53,13 @@ export class RecipeListComponent implements OnInit {
       directions: recipeData?.recipeDirections,
       imagePath: recipeData?.recipeImagePath,
     });
+  }
+
+
+  selectRecipe(selectedRecipe: Recipe) {
+    this.recipeWasSelected.emit(selectedRecipe)
+    this.selectedRecipe = selectedRecipe
+    console.log(selectedRecipe)
   }
 
 }
