@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, EventEmitter, OnChanges, DoCheck, SimpleChanges, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, Output } from '@angular/core';
-
+import { RecipesService } from "../../services/recipes/recipes.service";
+import { Recipe } from "./recipe.model";
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
@@ -7,17 +8,16 @@ import { Component, Input, OnInit, EventEmitter, OnChanges, DoCheck, SimpleChang
 })
 export class RecipeComponent implements OnInit {
 // OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
-  @Input() recipe: {name: string, description: string, imagePath: string, directions: string, time: string}
+  @Input() recipe: Recipe; 
 
-  @Output() recipeSelected = new EventEmitter<string>();
-
-  onRecipeSelected(selectedRecipe) {
-    this.recipeSelected.emit(selectedRecipe)
-  }
-  constructor() { 
+  constructor(private recipesService: RecipesService) { 
     console.log('constructor method fired')
   }
 
+  selectRecipe(selectedRecipe: Recipe) {
+    this.recipesService.recipeSelectedEvent.emit(selectedRecipe)
+    console.log('selectedRecipe', selectedRecipe)
+  }
   // ngOnChanges(changes: SimpleChanges): void {
   //   console.log('ngOnChanges fired')
   //   console.log({changes})
@@ -48,7 +48,6 @@ export class RecipeComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    console.log('ngOnInit fired')
-  }
 
-}
+    }
+  }

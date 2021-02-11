@@ -1,33 +1,39 @@
-import { Component, Output } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Recipe } from './recipe-book/recipe/recipe.model';
-
+import { NavigationService } from "./services/navigation/navigation.service";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angular-recipe';
-  
-  @Output() currentlySelectedNavOption = '';
-  @Output() currentlySelectedRecipe: Recipe;
+  public currentlySelectedNavItem: string = '';
 
-  private _setCurrentlySelectedNavOption(navOption: string): void {
-    this.currentlySelectedNavOption = navOption
-  }
+  constructor(private navigationService: NavigationService) {};
 
-  private _setCurrentlySelectedRecipe(selectedRecipe: Recipe): void {
-    this.currentlySelectedRecipe = selectedRecipe;
-    console.log(this.currentlySelectedRecipe);
+  ngOnInit() {
+    this.navigationService.selectNavItemEvent
+    .subscribe((navItem) => this.currentlySelectedNavItem = navItem)
   }
+  //   @Output() currentlySelectedRecipe: Recipe;
 
-  setSelectedRecipe(selectedRecipe: Recipe): void {
-    console.log(selectedRecipe)
-    this._setCurrentlySelectedRecipe(selectedRecipe)
-  }
+  // private _setCurrentlySelectedNavOption(navOption: string): void {
+  //   this.currentlySelectedNavOption = navOption
+  // }
 
-  setSelectedNavOption(navOption: string) {
-    console.log(navOption)
-    this._setCurrentlySelectedNavOption(navOption)
-  }
+//   private _setCurrentlySelectedRecipe(selectedRecipe: Recipe): void {
+//     this.currentlySelectedRecipe = selectedRecipe;
+//     console.log(this.currentlySelectedRecipe);
+//   }
+
+//   setSelectedRecipe(selectedRecipe: Recipe): void {
+//     console.log(selectedRecipe)
+//     this._setCurrentlySelectedRecipe(selectedRecipe)
+//   }
+
+  // setSelectedNavOption(navOption: string) {
+  //   console.log(navOption)
+  //   this._setCurrentlySelectedNavOption(navOption)
+  // }
 }

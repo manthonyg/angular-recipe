@@ -1,2 +1,3 @@
 <p>recipe-detail works!</p>
-<h1 *appOptionalRender="true">{{ currentlySelectedRecipe?.name }}</h1>
+
+<h1 (click)="onSelectDetail($event)" *appOptionalRender="true">{{ currentlySelectedRecipe?.name }}</h1>
