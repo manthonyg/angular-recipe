@@ -14,6 +14,7 @@ import { ShoppingListItemComponent } from './shopping-cart/shopping-list-item/sh
 import { ShoppingFormComponent } from './shopping-cart/shopping-form/shopping-form.component';
 import { DropdownDirective } from "./directives/dropdown/dropdown.directive";
 import { Routes, RouterModule } from "@angular/router";
+import { RouterComponent } from './router/router/router.component';
 
 const appRoutes: Routes = [
   { path: '', component: HeaderComponent },
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     OptionalRenderDirective,
     ShoppingListItemComponent,
     ShoppingFormComponent,
-    DropdownDirective
+    DropdownDirective,
+    RouterComponent
   ],
   imports: [
     FormsModule,
