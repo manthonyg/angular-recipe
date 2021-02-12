@@ -13,6 +13,15 @@ import { OptionalRenderDirective } from "./directives/optionalRender/optional-re
 import { ShoppingListItemComponent } from './shopping-cart/shopping-list-item/shopping-list-item.component';
 import { ShoppingFormComponent } from './shopping-cart/shopping-form/shopping-form.component';
 import { DropdownDirective } from "./directives/dropdown/dropdown.directive";
+import { Routes, RouterModule } from "@angular/router";
+
+const appRoutes: Routes = [
+  { path: '', component: HeaderComponent },
+  { path: 'recipe-list', component: RecipeListComponent },
+  { path: 'recipe-form', component: RecipeFormComponent },
+  { path: 'shopping-list', component: ShoppingListComponent },
+  { path: 'shopping-form', component: ShoppingFormComponent }
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +39,8 @@ import { DropdownDirective } from "./directives/dropdown/dropdown.directive";
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

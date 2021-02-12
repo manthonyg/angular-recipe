@@ -12,23 +12,25 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       
         <li appDropdown class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Shopping Cart
           </a>
      
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="nav-link" (click)="selectNavItem('shopping-list')" href="#">Shopping List</a></li>
-            <li><a class="nav-link" (click)="selectNavItem('shopping-form')" href="#">Add Shopping Items</a></li>
+            <li><a class="nav-link"  routerLink="/shopping-list">Shopping List</a></li>
+            <li><a class="nav-link" routerLink="/shopping-form" href="#">Add Shopping Items</a></li>
        
         </ul>
         </li>
         <li appDropdown class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" appDropdown href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" appDropdown role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Recipes
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="nav-link" (click)="selectNavItem('recipe-list')" href="#">Recipe List</a></li>
-            <li><a class="nav-link" (click)="selectNavItem('recipe-form')" href="#">Add Recipe</a></li>
+            <li><a class="nav-link" routerLink="/recipe-list">Recipe List</a></li>
+            <li><a class="nav-link" routerLink="/recipe-form">Add Recipe</a></li>
+            <!-- <li><a class="nav-link" (click)="selectNavItem('recipe-list')" href="#">Recipe List</a></li>
+            <li><a class="nav-link" (click)="selectNavItem('recipe-form')" href="#">Add Recipe</a></li> -->
           </ul>
         </li>
         

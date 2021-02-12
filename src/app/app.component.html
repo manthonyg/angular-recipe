@@ -2,13 +2,14 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-7 p-5">
-
-<app-shopping-form *ngIf="currentlySelectedNavItem === 'shopping-form'"></app-shopping-form>
+      <router-outlet></router-outlet>
+<!-- <app-shopping-form *ngIf="currentlySelectedNavItem === 'shopping-form'"></app-shopping-form>
 <app-recipe-list  *ngIf="currentlySelectedNavItem === 'recipe-list'"></app-recipe-list>
 <app-recipe-form *ngIf="currentlySelectedNavItem === 'recipe-form'"></app-recipe-form>
-<app-shopping-list *ngIf="currentlySelectedNavItem === 'shopping-list'"></app-shopping-list>
+<app-shopping-list *ngIf="currentlySelectedNavItem === 'shopping-list'"></app-shopping-list> -->
   </div>
   <div class="col-5 p-5">
-    <app-recipe-detail></app-recipe-detail>
+    <!-- <app-recipe-detail></app-recipe-detail> -->
+  
   </div>
 </div>
