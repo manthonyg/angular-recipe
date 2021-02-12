@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EventEmitter } from "@angular/core";
+import { ShoppingListItem } from 'src/app/shopping-cart/shopping-list-item/shopping-list-item.model';
 import { Recipe } from "../../recipe-book/recipe/recipe.model";
 
 @Injectable({providedIn: 'root'})
@@ -13,12 +14,14 @@ export class RecipesService {
         name: 'Chicken Soup',
         description: 'A delicious soup', 
         time: '20 minutes', 
+        ingredients: [new ShoppingListItem({name: 'apple2', calories: 100}), new ShoppingListItem({name: 'cucumber2', calories: 200})],
         imagePath: 'https://i.ytimg.com/vi/o91gT73mQhg/maxresdefault.jpg'
       }),
     new Recipe(
       {
         name: 'Beef Stroganof',
-        description: 'What a delicious meaty thing', 
+        description: 'What a delicious meaty thing',
+        ingredients: [new ShoppingListItem({name: 'apple', calories: 100}), new ShoppingListItem({name: 'cucumber', calories: 200})],
         time: '75 minutes', 
         imagePath: 'www.example.com/image.png'
       })

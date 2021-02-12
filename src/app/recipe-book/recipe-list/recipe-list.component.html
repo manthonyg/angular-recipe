@@ -1,5 +1,4 @@
 <div class="list-group">
-<app-recipe-form></app-recipe-form> 
   <app-recipe
    *ngFor="let recipeElement of recipes"
    [recipe]="recipeElement"
@@ -10,6 +9,7 @@
         <small>{{ recipeElement?.time }} minutes</small>
       </div>
       <p class="mb-1">{{ recipeElement?.description }}</p>
+  
       <!-- <img class="img-fluid" src="{{ recipeElement?.imagePath }}"> -->
       <button (click)="onRecipeDeleted(recipeElement?.name)">Delete</button>
 

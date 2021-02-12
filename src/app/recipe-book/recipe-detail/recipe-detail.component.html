@@ -1,3 +1,6 @@
 <p>recipe-detail works!</p>
 
 <h1 (click)="onSelectDetail($event)" *appOptionalRender="true">{{ currentlySelectedRecipe?.name }}</h1>
+<ul>
+  <li *ngFor="let ingredient of currentlySelectedRecipe?.ingredients">{{ ingredient?.name }} - {{ ingredient?.calories }}</li>
+</ul>
