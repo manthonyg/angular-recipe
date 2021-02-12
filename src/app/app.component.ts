@@ -7,8 +7,9 @@ import { NavigationService } from "./services/navigation/navigation.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'angular-recipe';
+  public title = 'angular-recipe';
   public currentlySelectedNavItem: string = '';
+  public currentDropdown: string = '';
 
   constructor(private navigationService: NavigationService) {};
 
@@ -37,3 +38,5 @@ export class AppComponent implements OnInit {
   //   this._setCurrentlySelectedNavOption(navOption)
   // }
 }
+
+

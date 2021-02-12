@@ -26,14 +26,5 @@ export class RecipeListComponent implements OnInit {
     console.log(recipeName, 'deleted')
   }
 
-  onRecipeAdded(recipeData: {recipeName: string, recipeDescription: string, recipeTime: string, recipeDirections: string, recipeImagePath: string}) {
-    this.recipes.push({
-      name: recipeData?.recipeName,
-      description: recipeData?.recipeDescription,
-      time: recipeData?.recipeTime,
-      directions: recipeData?.recipeDirections,
-      imagePath: recipeData?.recipeImagePath,
-    });
-  }
 
 }

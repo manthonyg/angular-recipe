@@ -7,9 +7,12 @@ import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.compo
 import { HeaderComponent } from './header/header.component';
 import { RecipeComponent } from './recipe-book/recipe/recipe.component';
 import { RecipeFormComponent } from './recipe-book/recipe-form/recipe-form.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ShoppingListComponent } from "./shopping-cart/shopping-list/shopping-list.component";
 import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail.component';
 import { OptionalRenderDirective } from "./directives/optionalRender/optional-render.directive";
+import { ShoppingListItemComponent } from './shopping-cart/shopping-list-item/shopping-list-item.component';
+import { ShoppingFormComponent } from './shopping-cart/shopping-form/shopping-form.component';
+import { DropdownDirective } from "./directives/dropdown/dropdown.directive";
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +23,9 @@ import { OptionalRenderDirective } from "./directives/optionalRender/optional-re
     ShoppingListComponent,
     RecipeDetailComponent,
     OptionalRenderDirective,
+    ShoppingListItemComponent,
+    ShoppingFormComponent,
+    DropdownDirective
   ],
   imports: [
     FormsModule,
