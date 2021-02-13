@@ -15,13 +15,16 @@ import { ShoppingFormComponent } from './shopping-cart/shopping-form/shopping-fo
 import { DropdownDirective } from "./directives/dropdown/dropdown.directive";
 import { Routes, RouterModule } from "@angular/router";
 import { RouterComponent } from './router/router/router.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: '', component: HeaderComponent },
   { path: 'recipe-list', component: RecipeListComponent },
   { path: 'recipe-form', component: RecipeFormComponent },
   { path: 'shopping-list', component: ShoppingListComponent },
-  { path: 'shopping-form', component: ShoppingFormComponent }
+  { path: 'shopping-form', component: ShoppingFormComponent },
+  { path: 'not-found', component: PageNotFoundComponent},
+  { path: '**', redirectTo: 'not-found'} // catch all paths I do not know- should be last
 ]
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ const appRoutes: Routes = [
     ShoppingListItemComponent,
     ShoppingFormComponent,
     DropdownDirective,
-    RouterComponent
+    RouterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     FormsModule,
