@@ -12,10 +12,11 @@ import { ShoppingFormComponent } from './shopping-cart/shopping-form/shopping-fo
 import { DropdownDirective } from "./directives/dropdown/dropdown.directive";
 import { RouterComponent } from './router/router/router.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {AuthGuard} from "./auth-guard.service";
 
 const routes: Routes = [
-    { path: '', component: HeaderComponent },
-    { path: 'recipe-list', component: RecipeListComponent },
+    { path: '', component: PageNotFoundComponent },
+    { path: 'recipe-list', canActivate: [AuthGuard], component: RecipeListComponent },
     { path: 'recipe-form', component: RecipeFormComponent },
     { path: 'shopping-list', component: ShoppingListComponent },
     { path: 'shopping-form', component: ShoppingFormComponent },
