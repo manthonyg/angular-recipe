@@ -19,16 +19,16 @@ export class ShoppingListService {
       })
   ];
 
-  public setShoppingListItems(newShoppingList: ShoppingListItem[]) {
+  private _setShoppingListItems(newShoppingList: ShoppingListItem[]) {
     return this._shoppingListItems = newShoppingList
   }
 
-  public getShoppingListItems(): ShoppingListItem[] {
+  private _getShoppingListItems(): ShoppingListItem[] {
     return this._shoppingListItems.slice()
   }
 
   public addShoppingListItem(item: ShoppingListItem) {
-    const newList = this.setShoppingListItems(this.getShoppingListItems().concat(item))
+    const newList = this._setShoppingListItems(this._getShoppingListItems().concat(item))
     this.shoppingListEvent.next(newList)
   }
 
