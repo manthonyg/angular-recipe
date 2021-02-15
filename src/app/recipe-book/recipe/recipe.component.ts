@@ -15,7 +15,7 @@ export class RecipeComponent implements OnInit {
   }
 
   selectRecipe(selectedRecipe: Recipe) {
-    this.recipesService.recipeSelectedEvent.emit(selectedRecipe)
+    this.recipesService.recipeSelectedEvent.next(selectedRecipe)
     console.log('selectedRecipe', selectedRecipe)
   }
   // ngOnChanges(changes: SimpleChanges): void {

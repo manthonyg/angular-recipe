@@ -5,7 +5,9 @@ export class AuthService {
   public logStatusChange = new EventEmitter<boolean>();
 
   private _setUserLogStatus(logStatus) {
-    return this._loggedIn = logStatus
+    this._loggedIn = logStatus
+    this.logStatusChange.emit(logStatus)
+    
   }
 
   public getUserLogStatus() {
@@ -17,18 +19,26 @@ export class AuthService {
       setTimeout(() => {
         resolve(this._loggedIn)
       }, 1000);
-     });
-     return promise
+    });
+    return promise
     };
 
   login() {
-    this._setUserLogStatus(true)
-    console.log('User logged in')
-  }
+    const promise: any = new Promise((resolve, _) => {
+      setTimeout(() => {
+        resolve(this._setUserLogStatus(true))
+      }, 1000);
+  return promise
+  })
+};
 
   logout() {
-    this._setUserLogStatus(false)
-    console.log('User logged out')
+    const promise: any = new Promise((resolve, _) => {
+      setTimeout(() => {
+        resolve(this._setUserLogStatus(false));
+      }, 1000);
+  });
+  return promise
   }
 
 }

@@ -35,21 +35,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   login(): void {
     this.authService.login()
-    this.authService.logStatusChange.emit(true)
   }
 
   logout(): void {
     this.authService.logout()
-    this.authService.logStatusChange.emit(false)
   }
 
   selectNavItem(navItem: string): void {
-    this.navigationService.selectNavItemEvent.emit(navItem)
+    this.navigationService.selectNavItemEvent.next(navItem)
     console.log(navItem)
   }
 
   handleToggleDropdown(navItem: string): void {
-    this.navigationService.toggleDropdownMenu.emit(navItem)
+    this.navigationService.toggleDropdownMenu.next(navItem)
     console.log(navItem)
   }
 

@@ -1,10 +1,10 @@
 import { Injectable, EventEmitter } from "@angular/core";
-
+import { Subject } from "rxjs";
 @Injectable({providedIn: 'root'})
 export class NavigationService {
 
-  public selectNavItemEvent = new EventEmitter<string>();
-  public toggleDropdownMenu = new EventEmitter<string>();
+  public selectNavItemEvent = new Subject<string>();
+  public toggleDropdownMenu = new Subject<string>();
 
   
   // public getCurrentlySelectedNavItem(): string {

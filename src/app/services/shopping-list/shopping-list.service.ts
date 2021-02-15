@@ -1,10 +1,10 @@
 import { Injectable, EventEmitter } from "@angular/core";
 import { ShoppingListItem } from "../../shopping-cart/shopping-list-item/shopping-list-item.model";
-
+import { Subject } from "rxjs";
 @Injectable({providedIn: 'root'})
 export class ShoppingListService {
 
-  public shoppingListEvent = new EventEmitter<ShoppingListItem[]>();
+  public shoppingListEvent = new Subject<ShoppingListItem[]>();
 
   private _shoppingListItems: ShoppingListItem[] = [
     new ShoppingListItem(
@@ -29,7 +29,7 @@ export class ShoppingListService {
 
   public addShoppingListItem(item: ShoppingListItem) {
     const newList = this.setShoppingListItems(this.getShoppingListItems().concat(item))
-    this.shoppingListEvent.emit(newList)
+    this.shoppingListEvent.next(newList)
   }
 
 }
