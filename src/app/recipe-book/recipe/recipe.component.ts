@@ -9,13 +9,14 @@ import { Recipe } from "./recipe.model";
 export class RecipeComponent implements OnInit {
 // OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
   @Input() recipe: Recipe; 
+  @Input() selectedRecipe: Recipe;
 
   constructor(private recipesService: RecipesService) { 
     console.log('constructor method fired')
   }
 
   selectRecipe(selectedRecipe: Recipe) {
-    this.recipesService.recipeSelectedEvent.next(selectedRecipe)
+    this.recipesService.recipeSelectedSubject.next(selectedRecipe)
     console.log('selectedRecipe', selectedRecipe)
   }
   // ngOnChanges(changes: SimpleChanges): void {

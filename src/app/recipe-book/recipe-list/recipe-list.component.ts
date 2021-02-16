@@ -1,4 +1,4 @@
-import { debugOutputAstAsTypeScript } from '@angular/compiler';
+import { debugOutputAstAsTypeScript, ThrowStmt } from '@angular/compiler';
 import { Component, Output, OnInit, EventEmitter } from '@angular/core';
 import { Recipe } from "../recipe/recipe.model";
 import { RecipesService } from "../../services/recipes/recipes.service";
@@ -15,15 +15,21 @@ export class RecipeListComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipes = this.recipesService.getRecipes()
-    this.recipesService.recipeSelectedEvent
+
+    this.recipesService.recipesSubject
+    .subscribe((recipes: Recipe[]) => {
+      this.recipes = recipes
+    });
+
+    this.recipesService.recipeSelectedSubject
     .subscribe((recipe: Recipe) => {
-      return this.selectedRecipe = recipe
-    })
+      this.selectedRecipe = recipe
+    });
   }
 
-  onRecipeDeleted(recipeName: string) {
-    this.recipesService.deleteRecipe(recipeName)
-    console.log(recipeName, 'deleted')
+  onRecipeDeleted(recipe: Recipe) {
+    this.recipesService.deleteRecipe(recipe)
+    console.log(recipe, 'deleted')
   }
 
 

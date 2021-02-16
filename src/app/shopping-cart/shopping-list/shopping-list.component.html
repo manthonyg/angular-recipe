@@ -1,5 +1,12 @@
 
 <ul class="list-group">
- 
-<app-shopping-list-item *ngFor="let shoppingListItem of shoppingList" [shoppingListItem]="shoppingListItem"></app-shopping-list-item>
+ <li 
+ *ngFor="let shoppingListItem of shoppingList" 
+ [ngClass]="{'active': shoppingListItem === selectedShoppingListItem}" 
+ (click)="handleSelectShoppingListItem(shoppingListItem)" 
+ class="list-group-item">
+ {{ shoppingListItem?.name }} - {{ shoppingListItem?.calories }}
+</li>
 </ul>
+
+<button (click)="handleDeleteShoppingListItem(selectedShoppingListItem)" *ngIf="selectedShoppingListItem">Delete</button>

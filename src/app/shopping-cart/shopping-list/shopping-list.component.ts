@@ -12,7 +12,7 @@ export class ShoppingListComponent implements OnInit {
   constructor(private shoppingListService: ShoppingListService) { }
   
   shoppingList: ShoppingListItem[];
-  selectedShoppingListItem: ShoppingListItem = new ShoppingListItem({name: 'hello', calories: 22})
+  selectedShoppingListItem: ShoppingListItem;
 
 
   ngOnInit(): void {
@@ -26,6 +26,16 @@ export class ShoppingListComponent implements OnInit {
   handleAddShoppingListItem(item: ShoppingListItem) {
     this.shoppingListService.addShoppingListItem(item)
     console.log('added', item)
+  }
+
+  handleSelectShoppingListItem(item: ShoppingListItem) {
+    console.log(this.selectedShoppingListItem, item)
+    this.selectedShoppingListItem = item
+  }
+
+  handleDeleteShoppingListItem(item: ShoppingListItem) {
+    this.shoppingListService.deleteShoppingListItem(item)
+    this.selectedShoppingListItem = null;
   }
 
 }

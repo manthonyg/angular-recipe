@@ -1,6 +1,23 @@
-<p>recipe-detail works!</p>
-
-<h1 (click)="onSelectDetail($event)" *appOptionalRender="true">{{ currentlySelectedRecipe?.name }}</h1>
-<ul>
-  <li *ngFor="let ingredient of currentlySelectedRecipe?.ingredients">{{ ingredient?.name }} - {{ ingredient?.calories }}</li>
-</ul>
+<div *ngIf="currentlySelectedRecipe" class="card" style="width: 18rem;">
+  <img src="{{ currentlySelectedRecipe?.imagePath }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ currentlySelectedRecipe?.name }}</h5>
+    <p class="card-text">{{ currentlySelectedRecipe?.description }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li>INGREDIENTS</li>
+    <li *ngFor="let ingredient of currentlySelectedRecipe?.ingredients">{{ ingredient?.name }} - {{ ingredient?.calories }}</li> 
+  </ul>
+  <div class="card-body">
+    <li appDropdown class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" appDropdown role="button" data-bs-toggle="dropdown" aria-expanded="false">
+       Manage
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="nav-link" (click)="handleAddIngredients(currentlySelectedRecipe?.ingredients)">Add ingredients</a></li>
+        <li><a class="nav-link" (click)="handleDeleteRecipe(currentlySelectedRecipe)">Delete recipe</a></li>
+        <!-- <li><a class="nav-link" (click)="selectNavItem('recipe-list')" href="#">Recipe List</a></li>
+        <li><a class="nav-link" (click)="selectNavItem('recipe-form')" href="#">Add Recipe</a></li> -->
+      </ul>
+    </li>
+</div>

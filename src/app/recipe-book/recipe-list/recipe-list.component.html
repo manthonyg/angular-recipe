@@ -1,17 +1,24 @@
+<div class="row">
+<div class="col-7">
 <div class="list-group">
   <app-recipe
    *ngFor="let recipeElement of recipes"
    [recipe]="recipeElement"
+   [selectedRecipe]="selectedRecipe"
+   [ngClass]="{'active': recipeElement === selectedRecipe}"
    >
 
       <div class="d-flex w-100 justify-content-between">
-        <h5 [ngClass]="{selected: recipeElement === selectedRecipe}" class="mb-1">{{ recipeElement?.name }}</h5>
+        <h5 class="mb-1">
+          {{ recipeElement?.name }}</h5>
         <small>{{ recipeElement?.time }} minutes</small>
       </div>
       <p class="mb-1">{{ recipeElement?.description }}</p>
-  
-      <!-- <img class="img-fluid" src="{{ recipeElement?.imagePath }}"> -->
-      <button (click)="onRecipeDeleted(recipeElement?.name)">Delete</button>
 
   </app-recipe>
+</div>
+</div>
+<div class="col-5">
+  <app-recipe-detail></app-recipe-detail>
+</div>
 </div>
